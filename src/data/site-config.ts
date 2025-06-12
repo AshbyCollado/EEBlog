@@ -40,6 +40,7 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     website: 'https://ashby.dev',
+    title: '',
     description: 'Ashby Samba\'s blog',
     image: {
         src: '/dante-preview.jpg',
