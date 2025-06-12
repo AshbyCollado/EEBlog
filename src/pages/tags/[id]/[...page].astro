@@ -16,7 +16,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
         const filteredPosts = getPostsByTag(posts, tag.id);
         return paginate(filteredPosts, {
             params: { id: tag.id },
-            pageSize: siteConfig.postsPerPage || 4
+            pageSize: siteConfig.postsPerPage || 2
         });
     });
 }

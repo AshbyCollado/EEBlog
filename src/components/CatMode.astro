@@ -1,0 +1,31 @@
+---
+// This component finds all images on the page and makes them clickable,
+// turning them into a random cat from cataas.com.
+---
+
+<script>
+    // This script runs on the client to add the "cat mode" functionality.
+    document.addEventListener('astro:page-load', () => {
+        const images = document.querySelectorAll('img');
+
+        images.forEach((image: HTMLImageElement) => {
+            const originalSrc = image.src;
+            let isCat = false;
+
+            // Make the image clickable
+            image.style.cursor = 'pointer';
+
+            image.addEventListener('click', () => {
+                if (isCat) {
+                    image.src = originalSrc;
+                } else {
+                    const width = image.clientWidth;
+                    const height = image.clientHeight;
+                    // Fetch a new cat of the same size, with a timestamp to prevent caching
+                    image.src = `https://cataas.com/cat?width=${width}&height=${height}&t=${new Date().getTime()}`;
+                }
+                isCat = !isCat;
+            });
+        });
+    });
+</script> 

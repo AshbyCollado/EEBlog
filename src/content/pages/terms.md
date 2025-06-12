@@ -1,52 +1,36 @@
 ---
-title: Terms of Service
+title: Terms and Conditions
 seo:
-  title: Terms of Service
-  description: Explore the terms and conditions of Dante website for a clear understanding of guidelines and responsibilities.
+    title: Terms and Conditions
+    description: The terms and conditions for using this website.
 ---
 
-**Last updated on January 11, 2024**
+Welcome to my personal blog. By accessing this website, you agree to comply with and be bound by the following terms and conditions of use.
 
-These Terms of Service ("Terms") govern your access to and use of [Website Name] ("the Website") and any related services provided by [Website Owner/Company] ("we," "us," or "our"). Please read these Terms carefully before using the Website.
+### 1. Intellectual Property
 
-**1. Acceptance of Terms**
+All content on this website, including articles, images, and personal projects, is the intellectual property of the site owner, Ashby Samba, unless otherwise stated. This content is for your personal, non-commercial use only. You may not reproduce, distribute, or transmit any part of this website's content without prior written permission.
 
-By accessing or using the Website, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms or the Privacy Policy, please do not use the Website.
+### 2. Website Use
 
-**2. Changes to Terms**
+This website is provided for informational purposes to document my progress as an Electrical Engineering student. You are welcome to read and learn from the content. You agree not to use this website for any unlawful purpose or in any way that could damage, disable, or impair the website or interfere with any other party's use of it.
 
-We reserve the right to modify, amend, or update these Terms at any time. Such changes will be effective upon posting on the Website. It is your responsibility to review these Terms regularly. Your continued use of the Website after any changes indicates your acceptance of the revised Terms.
+### 3. Disclaimer of Liability
 
-**3. Use of the Website**
+The information provided on this blog is on an "as is" basis. While I strive to provide accurate and up-to-date information, I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information, projects, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
 
-You agree to use the Website for lawful purposes and in a manner consistent with these Terms. You are responsible for any content you post or submit on the Website.
+I am not liable for any losses or damages arising from the use of this website.
 
-**4. Registration and Account**
+### 4. Opinions Disclaimer
 
-Certain areas of the Website may require registration or the creation of an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
+The opinions expressed on this blog are my own and do not reflect the views or opinions of any university, organization, or employer I may be affiliated with.
 
-**5. Content and Intellectual Property**
+### 5. Changes to Terms
 
-The content on the Website, including text, graphics, logos, images, audio, video, software, and other materials, is owned or licensed by us and is protected by copyright and other intellectual property laws. You may not use, reproduce, or distribute the content without our prior written consent.
+I reserve the right to modify these terms and conditions at any time. You should check this page periodically for changes. By using this website, you agree to be bound by the current version of these terms.
 
-**6. Third-Party Links**
+### 6. Governing Law
 
-The Website may contain links to third-party websites or resources. We do not endorse and are not responsible for the content, products, or services provided by third parties. Your use of such websites is at your own risk.
+These terms and conditions are governed by the laws of the jurisdiction in which the website owner resides.
 
-**7. Termination**
-
-We may, at our sole discretion, terminate or suspend your access to the Website at any time and for any reason, without notice.
-
-**8. Disclaimer**
-
-The Website and its content are provided on an "as is" and "as available" basis. We make no warranties or representations about the accuracy or completeness of the content. We do not guarantee that the Website will be error-free or uninterrupted.
-
-**9. Limitation of Liability**
-
-To the fullest extent permitted by law, we shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or in connection with the use or inability to use the Website.
-
-**10. Governing Law**
-
-These Terms are governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of laws principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of [Your Jurisdiction].
-
-_Thank you for reading our Terms of Service. By using the Website, you agree to be bound by these Terms._
+*Last updated: June 12, 2025*
