@@ -90,14 +90,14 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Ashby Samba',
-        text: "I'm an electrical engineer with a passion for personal projects, but I've often struggled to see them through. I created this blog as a public commitment to keep myself motivated and to document my journey. My hope is that it serves as both a personal engineering notebook and a resource for others interested in electrical engineering and its related fields.",
+        text: "I'm an electrical engineering student starting looking to start my own projects but I've often struggled to see them through. I created this blog as a public commitment to keep myself motivated and to document my journey.",
         image: {
             src: '/hero.jpg',
-            alt: 'A person sitting at a desk in front of a computer'
+            alt: 'A handsome electrical engineering student'
         }
     },
     /* subscribe: {
-        title: 'Subscribe to Dante Newsletter',
+        title: 'Subscribe to Ashby\'s Blog',
         text: 'One update per week. All the latest posts directly in your inbox.',
         formUrl: '#'
     }, */

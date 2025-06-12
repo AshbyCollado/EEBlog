@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Hero from '../components/Hero.astro';
 import PostPreview from '../components/PostPreview.astro';
 import ProjectPreview from '../components/ProjectPreview.astro';
 import siteConfig from '../data/site-config';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
 const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
@@ -20,7 +20,8 @@ const latestProjects = projects.slice(0, 3);
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
     <Hero />
-    {/* {
+    {
+        /* {
         featuredProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">
                 <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Projects</h2>
@@ -32,7 +33,8 @@ const latestProjects = projects.slice(0, 3);
                 </div>
             </div>
         )
-    } */}
+    } */
+    }
     {
         latestProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">
@@ -46,7 +48,8 @@ const latestProjects = projects.slice(0, 3);
             </div>
         )
     }
-    {/* {
+    {
+        /* {
         featuredPosts?.length > 0 && (
             <div class="mb-16 sm:mb-24">
                 <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Featured Posts</h2>
@@ -58,7 +61,8 @@ const latestProjects = projects.slice(0, 3);
                 </div>
             </div>
         )
-    } */}
+    } */
+    }
     {
         latestPosts?.length > 0 && (
             <div class="mb-16 sm:mb-24">
