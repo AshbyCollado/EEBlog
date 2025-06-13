@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { marked } from 'marked';
+import heroImage from '../assets/hero.jpg';
 import siteConfig from '../data/site-config';
 import Button from './Button.astro';
 
@@ -11,7 +13,7 @@ const hero = siteConfig.hero;
         <section class="w-full flex flex-col items-center text-center gap-6 mb-20 sm:mb-28">
             {hero.image?.src && (
                 <figure class="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-main shadow-xl">
-                    <img class="w-full h-full object-cover" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
+                    <Image class="w-full h-full object-cover" src={heroImage} alt={hero.image.alt || ''} />
                 </figure>
             )}
             {hero.title && <h1 class="text-4xl sm:text-6xl font-serif font-bold leading-tight">{hero.title}</h1>}
