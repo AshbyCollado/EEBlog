@@ -3,10 +3,8 @@
 media:
   - name: images
     label: Images
-    # Use the {primary} placeholder to create a folder for each post
-    # based on its title slug.
-    input: public/images/{primary}
-    output: /images/{primary}
+    input: public/images
+    output: /images
     extensions: [ "jpg", "jpeg", "png", "gif", "svg", "webp" ]
 
 # Content: Define the different types of content for the site.
