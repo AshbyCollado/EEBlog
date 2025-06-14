@@ -1,0 +1,64 @@
+# Media: Where to store uploaded files and how to link to them.
+# We'll use a simple setup: store images in `public/images` and reference them directly.
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    extensions: [ "jpg", "jpeg", "png", "gif", "svg", "webp" ]
+
+# Content: Define the different types of content for the site.
+content:
+  # A "collection" of blog posts
+  - name: posts
+    label: Posts
+    type: collection
+    # Path to the folder where blog posts are stored
+    path: src/content/blog
+    # How to generate filenames for new posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    # Define the fields for each post
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        required: true
+      - name: publishDate
+        label: Publish Date
+        type: date
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      # This "object" field matches the nested structure of your existing frontmatter
+      - name: seo
+        label: SEO Settings
+        type: object
+        fields:
+          - name: image
+            label: Feature Image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image # This field type provides an image uploader
+              - name: alt
+                label: Alt Text
+                type: string
+      # The "body" field is special and will contain the main markdown content of the post
+      - name: body
+        label: Body
+        type: rich-text
+    # How the list of posts is displayed in the CMS
+    view:
+      primary: title
+      fields: [ title, publishDate ]
+      sort: [ publishDate, title ]
+      default:
+        sort: publishDate
+        order: desc
