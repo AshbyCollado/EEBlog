@@ -41,6 +41,15 @@ const { Content } = await render(post);
                 }
             </div>
         </header>
+
+        {
+            seo?.image?.src && (
+                <div class="mb-8">
+                    <img class="w-full rounded-lg" src={seo.image.src} alt={seo.image.alt ?? ''} />
+                </div>
+            )
+        }
+
         <div class="max-w-none prose sm:prose-lg">
             <Content />
         </div>
