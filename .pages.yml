@@ -16,13 +16,18 @@ content:
     # Path to the folder where blog posts are stored
     path: src/content/blog
     # How to generate filenames for new posts
-    filename: "{year}-{month}-{day}-{primary}.md"
+    filename: "{primary}.md"
     # Define the fields for each post
     fields:
       - name: title
         label: Title
         type: string
         required: true
+      - name: published
+        label: Published
+        description: "Set this to 'on' to make the post public. Drafts will not be visible on the live site."
+        type: boolean
+        default: false
       - name: excerpt
         label: Excerpt
         type: text
