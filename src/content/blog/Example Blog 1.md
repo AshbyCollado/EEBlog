@@ -1,5 +1,6 @@
 ---
 title: EXAMPLE The Advantages & Disadvantages of Working from Home
+published: true
 excerpt: In recent years, the way we work has undergone a significant
   transformation, largely due to advancements in technology and changing
   attitudes toward work-life balance. One of the most notable changes has been
@@ -18,7 +19,6 @@ Test test
 
 > Jam a man of fortune
 
-  
 ![A person standing at the window](../../assets/post-1.jpg)
 
 **Note:** This post was created using Chat GPT to demonstrate the features of the [_Dante Astro.js theme functionality_](https://justgoodui.com/astro-themes/dante/).
