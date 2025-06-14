@@ -1,6 +1,6 @@
 ---
 title: First offical blog post!!
-published: true
+published: false
 excerpt: I am a man of fortune and I must seek my fortune
 publishDate: 2025-06-15
 tags:
@@ -8,3 +8,6 @@ tags:
   - Coding
   - Introduction
 ---
+> I am a man of fortune and I must seek my fortune  
+
+# Introduction
