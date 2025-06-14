@@ -16,4 +16,13 @@ Ashby, 26, second year Electrical engineering student... I want to begin working
 
 I've been keeping a journal that I got from the dollar store by desk as a progress keeper but its difficult to parse through it without getting lost in ramblings. By organizing it and putting it online, I can further... helpful to not only me but others going on the same journey.
 
+This blog will consists of mainly 2 things (for now..)
+
+1.  A place to log my progress on EE including personal projects and hurdles of knowledge that i cross
+    
+2.  A place for findings and general information that can be of value to someone
+    
+
+Thanks for reading my first..
+
 /
