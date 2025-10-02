@@ -8,10 +8,6 @@ import siteConfig from './src/data/site-config';
 export default defineConfig({
   site: siteConfig.website,
 
-  experimental: {
-    session: true, // ✅ enable this to resolve the build error
-  },
-
   vite: {
     plugins: [tailwindcss()]
   },
