@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import siteConfig from './src/data/site-config';
 
+import svelte from '@astrojs/svelte';
+
 export default defineConfig({
   site: siteConfig.website,
 
@@ -12,6 +14,14 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    svelte({
+      experimental: {
+        async: true
+      }
+    })
+  ],
   adapter: netlify()
 });

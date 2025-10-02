@@ -14,12 +14,16 @@
         "@astrojs/netlify": "^6.3.4",
         "@astrojs/rss": "^4.0.11",
         "@astrojs/sitemap": "^3.3.0",
+        "@astrojs/svelte": "^7.2.0",
         "@fontsource/merriweather": "^5.2.9",
         "@fontsource/montserrat": "^5.2.6",
+        "@supabase/supabase-js": "^2.58.0",
         "@tailwindcss/vite": "^4.0.17",
         "astro": "^5.5.6",
         "marked": "^15.0.7",
-        "tailwindcss": "^4.0.17"
+        "svelte": "^5.39.8",
+        "tailwindcss": "^4.0.17",
+        "typescript": "^5.9.3"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.16",

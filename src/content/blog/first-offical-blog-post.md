@@ -7,6 +7,7 @@ tags:
   - Blog
   - Coding
   - Introduction
+emojis: ["👽", "❤️", "🎉", "🤔", "😂"]
 ---
 > I am a man of fortune and I must seek my fortune
 

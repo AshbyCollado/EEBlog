@@ -40,6 +40,13 @@ content:
         label: Tags
         type: string
         list: true
+      - name: emojis
+        label: Emojis
+        description: 'Provide exactly 5 emojis for this post.'
+        type: string
+        list: 
+          min: 5
+          max: 5
       # This "object" field matches the nested structure of your existing frontmatter
       - name: seo
         label: SEO Settings
