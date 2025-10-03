@@ -4,10 +4,12 @@
 	export let id = ''; // Unique ID for the page, e.g., a blog post slug
 	export let emojis = [];
 
-	let emojiColumnMap = {};
-	emojis.forEach((emoji, i) => {
-		emojiColumnMap[emoji] = `emoji${i + 1}`;
-	});
+	// Reactive statement: This code will re-run whenever the `emojis` prop changes.
+	// This ensures the map is built correctly after the props are passed from Astro.
+	$: emojiColumnMap = emojis.reduce((acc, emoji, i) => {
+		acc[emoji] = `emoji${i + 1}`;
+		return acc;
+	}, {});
 
 	let selectedEmoji = '';
 	let reactionCounts = {};
