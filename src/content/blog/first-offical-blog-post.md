@@ -18,7 +18,7 @@ Hello, My name is Ashby, I'm a 26 year old second year Electrical engineering st
 I want to begin working on personal projects and further my learning in general. This blog will serve as a place where I can stay motivated and on track.
 
 This blog will consists of mainly 2 things (for now..)
-
+d
 1.  A place to log my progress on EE including personal projects and hurdles of knowledge that i cross
-    
+
 2.  A place for findings and general information that can be of value to someone
