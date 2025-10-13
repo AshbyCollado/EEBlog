@@ -1,24 +1,56 @@
 ---
+import NotePreview from '../../components/NotePreview.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const allNotes = await Astro.glob('../../content/notes/**/*.{md,mdx}');
+
+// Group notes by their parent directory
+const groupedNotes = allNotes.reduce((acc, note) => {
+    // Start the path from within the EENotes directory to create cleaner group names.
+    const relativePath = note.file.split('src/content/notes/EENotes/')[1];
+    const pathParts = relativePath.split('/');
+
+    // Use the directory name as the group, or "General" for notes in the root of EENotes.
+    const group = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : 'General';
+
+    if (!acc[group]) {
+        acc[group] = [];
+    }
+    acc[group].push(note);
+    return acc;
+}, {});
+
+// Sort the notes within each group. For now, this is alphabetical by filename.
+for (const group in groupedNotes) {
+    groupedNotes[group].sort((a, b) => a.file.localeCompare(b.file));
+}
+
+// Sort the groups by name
+const sortedGroups = Object.entries(groupedNotes).sort(([a], [b]) => a.localeCompare(b));
 ---
 
 <BaseLayout title="Notes">
-    <h1>Electrical Engineering Notes</h1>
-    <br />
+    <div class="space-y-8">
+        <div class="space-y-2">
+            <h1>My Notes</h1>
+        </div>
 
-    <ul>
-        {
-            allNotes.map((note) => {
-                const slug = note.file.split('src/content/notes/')[1].replace(/\.(md|mdx)$/, '');
-                const title = note.frontmatter.title || slug.split('/').pop().replace(/-/g, ' ');
-                const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
-                return (
-                    <li>
-                        <a href={`/notes/${slug}`}>{displayTitle}</a>
-                    </li>
-                );
-            })
-        }
-    </ul>
+        <!-- Render each group of notes -->
+        <div class="space-y-12">
+            {
+                sortedGroups.map(([group, notes], index) => (
+                    <>
+                        {index > 0 && <hr />}
+                        <div class="space-y-8">
+                            <h2 class="text-2xl font-serif font-semibold">{group.replace(/[-]/g, ' ')}</h2>
+                            <div class="space-y-8">
+                                {notes.map((note) => (
+                                    <NotePreview note={note} />
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                ))
+            }
+        </div>
+    </div>
 </BaseLayout>

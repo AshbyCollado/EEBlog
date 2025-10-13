@@ -1,20 +1,24 @@
 {
   "main": {
-    "id": "80b9ec459427fffe",
+    "id": "b730394741145d1f",
     "type": "split",
     "children": [
       {
-        "id": "a2aa4fdb9398d0bb",
+        "id": "437090a9118e4a36",
         "type": "tabs",
         "children": [
           {
-            "id": "03d48bce5e69d62e",
+            "id": "50b4397d9ed9ac73",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "src/content/notes/EENotes/Daily Notes/2025-10-13.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2025-10-13"
             }
           }
         ]
@@ -23,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "9d728938ecc69bff",
+    "id": "6d6e6f2d106ced14",
     "type": "split",
     "children": [
       {
-        "id": "01c19cb0400de2a9",
+        "id": "7b46bf5e8893d6b4",
         "type": "tabs",
         "children": [
           {
-            "id": "0588ed4ca7aea9ea",
+            "id": "7a966b23d545da4b",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +48,7 @@
             }
           },
           {
-            "id": "11ce515130418dec",
+            "id": "7090771220c1d65b",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +65,7 @@
             }
           },
           {
-            "id": "4d3c81654c412f2d",
+            "id": "d64a97b06f8f6a03",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -74,23 +78,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 482.5
   },
   "right": {
-    "id": "602ff392b22b8038",
+    "id": "d4d0ac826d77f2eb",
     "type": "split",
     "children": [
       {
-        "id": "0f627b2f48dcc737",
+        "id": "db5d3e6ebcfc1482",
         "type": "tabs",
         "children": [
           {
-            "id": "426c9e6e54d7355e",
+            "id": "02ee26a06f958393",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily Notes/2025-10-13 1.md",
+                "file": "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184903.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2025-10-13 1"
+              "title": "Backlinks for Pasted image 20251013184903"
             }
           },
           {
-            "id": "af745fe65a8e2224",
+            "id": "fb73cfe345e5eeee",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily Notes/2025-10-13 1.md",
+                "file": "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184903.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2025-10-13 1"
+              "title": "Outgoing links from Pasted image 20251013184903"
             }
           },
           {
-            "id": "1da517af61f89b48",
+            "id": "7e4d71f945476f9c",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,18 +137,18 @@
             }
           },
           {
-            "id": "5475f13289a517bf",
+            "id": "7185aa6fe5faa66f",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily Notes/2025-10-13 1.md",
+                "file": "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184903.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-10-13 1"
+              "title": "Outline of Pasted image 20251013184903"
             }
           }
         ]
@@ -165,35 +169,27 @@
       "bases:Create new base": false
     }
   },
-  "active": "03d48bce5e69d62e",
+  "active": "50b4397d9ed9ac73",
   "lastOpenFiles": [
-    "Daily Notes/2025-10-13 1.md",
-    "Daily Notes/2025-10-13.md",
-    "public/assets/notes/Pasted image 20251013183150.png",
-    "public/assets/notes",
-    "public/assets",
-    "public",
-    "Daily Notes/8 Programming Concepts Universal to Programming.md",
-    "Pasted image 20251013182415.png",
-    "Pasted image 20251013182523.png",
-    "Daily Notes/Pasted image 20251013175819.png",
-    "EE 1/8 Programming Concepts Universal to Programming.md",
-    "EE 1 1 1 1/Welcome.md",
-    "EE 1 1 1 1/8 Programming Concepts Universal to Programming.md",
-    "EE 1 1 1 1",
-    "EE 1 1 1/Welcome.md",
-    "EE 1 1 1/8 Programming Concepts Universal to Programming.md",
-    "EE 1 1 1",
-    "EE 1/Welcome.md",
-    "EE 1 1/Welcome.md",
-    "EE 1 1/8 Programming Concepts Universal to Programming.md",
-    "EE 1 1",
-    "Daily Notes 1/2025-10-13.md",
-    "Daily Notes 1/2025-10-13 1.md",
-    "Daily Notes 1",
-    "EE 1",
-    "A boogier.md",
-    "EE",
-    "Daily Notes"
+    "public/assets/notes/Pasted image 20251013185545.png",
+    "src/content/notes/EENotes/Daily Notes/8 Programming Concepts Universal to Programming.md",
+    "src/content/notes/EENotes/Daily Notes/2025-10-13.md",
+    "src/content/notes/EENotes/Daily Notes/2025-10-13 1.md",
+    "public/assets/notes/Pasted image 20251013175819.png",
+    "public/assets/notes/Pasted image 20251013185451.png",
+    "public/assets/notes/Pasted image 20251013185449.png",
+    "public/assets/notes/Pasted image 20251013185144.png",
+    "public/assets/notes/Pasted image 20251013184903.png",
+    "public/assets/notes/Pasted image 20251013184810.png",
+    "public/assets/notes/Pasted image 20251013184738.png",
+    "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013185144.png",
+    "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184903.png",
+    "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184810.png",
+    "README.md",
+    "Untitled.canvas",
+    "src/content/notes/EENotes/Daily Notes/public/assets/notes",
+    "src/content/notes/EENotes/Daily Notes/public/assets",
+    "src/content/notes/EENotes/Daily Notes/public",
+    "node_modules/ms/license.md"
   ]
 }

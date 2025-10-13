@@ -1,0 +1,48 @@
+---
+import ArrowRight from '../icons/ArrowRight.astro';
+import FormattedDate from './FormattedDate.astro';
+
+// This defines the expected properties for our component.
+// 'note' is the main piece of data we'll pass in.
+type Props = {
+    note: {
+        file: string;
+        frontmatter: {
+            title?: string;
+            pubDate?: Date;
+        };
+    };
+    class?: string;
+    headingLevel?: 'h2' | 'h3';
+};
+
+const { note, class: className, headingLevel = 'h2' } = Astro.props;
+const { frontmatter } = note;
+
+// We generate the slug and title here, just like on the index page.
+const slug = note.file.split('src/content/notes/')[1].replace(/\.(md|mdx)$/, '');
+const title = frontmatter.title || decodeURIComponent(slug.split('/').pop().replace(/-/g, ' '));
+const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
+const TitleTag = headingLevel;
+---
+
+<a class:list={['flex justify-between items-start gap-8 group', className]} href={`/notes/${slug}/`}>
+    <div class="grow">
+        <TitleTag
+            class="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-dashed group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl"
+        >
+            {displayTitle}
+        </TitleTag>
+        <!-- Only display the date if it's available in the note's frontmatter -->
+        {
+            frontmatter.pubDate && (
+                <div class="mt-1 text-sm leading-normal">
+                    <FormattedDate date={frontmatter.pubDate} />
+                </div>
+            )
+        }
+    </div>
+    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
+        Read Note <ArrowRight class="fill-current w-4 h-4" />
+    </div>
+</a>

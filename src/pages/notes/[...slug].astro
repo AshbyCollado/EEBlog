@@ -1,15 +1,21 @@
 ---
+import { marked } from 'marked';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// This is our simple, manual replacement function.
+function convertObsidianImages(content: string) {
+    const obsidianImageRegex = /!\[\[(.*?)\]\]/g;
+    return content.replace(obsidianImageRegex, (match, imageName) => {
+        const imagePath = `/assets/notes/${imageName.replace(/ /g, '%20')}`;
+        return `![${imageName}](${imagePath})`;
+    });
+}
+
 export async function getStaticPaths() {
-    // Use Astro.glob to find all Markdown files in the notes directory.
-    // This is more flexible than collections and doesn't require a schema.
     const notes = await Astro.glob('../../content/notes/**/*.{md,mdx}');
 
     return notes.map((note) => {
-        // Create a URL-friendly slug from the file's path.
-        // Example: .../src/content/notes/EENotes/Welcome.md -> eenotes/welcome
         const slug = note.file.split('src/content/notes/')[1].replace(/\.(md|mdx)$/, '');
-
         return {
             params: { slug },
             props: { note }
@@ -18,20 +24,20 @@ export async function getStaticPaths() {
 }
 
 const { note } = Astro.props;
-const { Content, frontmatter } = note;
+const { frontmatter } = note;
 
-// Use the title from frontmatter if it exists, otherwise, create a title from the filename in the slug.
-// Also, decode URI components to handle spaces in file names correctly.
+// Get the raw content and process it.
+const rawContent = await note.rawContent();
+const processedContent = convertObsidianImages(rawContent);
+const htmlContent = marked.parse(processedContent);
+
 const title = frontmatter.title || decodeURIComponent(Astro.params.slug.split('/').pop().replace(/-/g, ' '));
-
-// Capitalize the first letter for display.
 const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
 ---
 
 <BaseLayout title={displayTitle}>
     <main class="prose prose-lg">
         <h1>{displayTitle}</h1>
-        <!-- Only show the publication date if it's available in the frontmatter -->
         {
             frontmatter.pubDate && (
                 <p>
@@ -40,6 +46,6 @@ const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
             )
         }
         <hr />
-        <Content />
+        <div set:html={htmlContent} />
     </main>
 </BaseLayout>
