@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allNotes = await Astro.glob('../../content/notes/**/*.{md,mdx}');
+---
+
+<BaseLayout title="Notes">
+    <h1>Electrical Engineering Notes</h1>
+    <br />
+
+    <ul>
+        {
+            allNotes.map((note) => {
+                const slug = note.file.split('src/content/notes/')[1].replace(/\.(md|mdx)$/, '');
+                const title = note.frontmatter.title || slug.split('/').pop().replace(/-/g, ' ');
+                const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
+                return (
+                    <li>
+                        <a href={`/notes/${slug}`}>{displayTitle}</a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</BaseLayout>
