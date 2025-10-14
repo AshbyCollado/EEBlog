@@ -1,0 +1,18 @@
+---
+import LinkArchive from '@components/LinkArchive.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title={`Link Archive`}
+    description="A curated collection of valuable links from around the web."
+    showHeader={false}
+    showNav={true}
+    showFooter={false}
+>
+    <main class="flex-1">
+        <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+            <LinkArchive randomizeTabEffects={true} randomizeLinkEffects={true} />
+        </div>
+    </main>
+</BaseLayout>

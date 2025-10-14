@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/notes/EENotes/Daily Notes/2025-10-13.md",
+                "file": "src/content/pages/terms.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-10-13"
+              "title": "terms"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Ashby Samba",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -169,11 +170,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "50b4397d9ed9ac73",
+  "active": "7090771220c1d65b",
   "lastOpenFiles": [
+    "src/content/blog/first-offical-blog-post.md",
+    "src/content/notes/EENotes/Daily Notes/2025-10-13.md",
+    "node_modules/@rollup/rollup-android-arm-eabi",
+    "node_modules/@parcel/watcher-android-arm64",
+    "node_modules/@img/sharp-darwin-arm64",
+    "node_modules/@esbuild/aix-ppc64",
+    "node_modules/@tailwindcss/node/node_modules/lightningcss-darwin-x64",
+    "node_modules/lightningcss-linux-x64-musl",
+    "node_modules/lightningcss-win32-arm64-msvc",
+    "node_modules/@tailwindcss/node/node_modules/lightningcss-darwin-arm64",
+    "node_modules/lightningcss-linux-arm64-musl",
+    "node_modules/lightningcss-linux-x64-gnu",
     "public/assets/notes/Pasted image 20251013185545.png",
     "src/content/notes/EENotes/Daily Notes/8 Programming Concepts Universal to Programming.md",
-    "src/content/notes/EENotes/Daily Notes/2025-10-13.md",
     "src/content/notes/EENotes/Daily Notes/2025-10-13 1.md",
     "public/assets/notes/Pasted image 20251013175819.png",
     "public/assets/notes/Pasted image 20251013185451.png",
@@ -184,12 +196,8 @@
     "public/assets/notes/Pasted image 20251013184738.png",
     "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013185144.png",
     "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184903.png",
-    "src/content/notes/EENotes/Daily Notes/public/assets/notes/Pasted image 20251013184810.png",
     "README.md",
     "Untitled.canvas",
-    "src/content/notes/EENotes/Daily Notes/public/assets/notes",
-    "src/content/notes/EENotes/Daily Notes/public/assets",
-    "src/content/notes/EENotes/Daily Notes/public",
     "node_modules/ms/license.md"
   ]
 }

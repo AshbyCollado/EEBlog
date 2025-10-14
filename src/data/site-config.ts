@@ -62,6 +62,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Notes',
             href: '/notes'
+        },
+        {
+            text: 'Links',
+            href: '/links'
         }
     ],
     footerNavLinks: [
@@ -84,7 +88,7 @@ const siteConfig: SiteConfig = {
             href: '#'
         },
         {
-            text: 'Reddit',
+            text: 'Github',
             href: '#'
         },
         {
@@ -94,7 +98,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Ashby Samba',
-        text: "I'm an electrical engineering student starting looking to start my own projects but I've often struggled to see them through. I created this blog as a public commitment to keep myself motivated and to document my journey.",
+        text: "Under Construction.",
         image: {
             src: '/hero.jpg',
             alt: 'A handsome electrical engineering student'

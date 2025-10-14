@@ -1,0 +1,32 @@
+---
+import type { Link } from '@data/linkArchive';
+import ArrowRight from '@icons/ArrowRight.astro';
+
+type Props = {
+    link: Link;
+    class?: string;
+    headingLevel?: 'h2' | 'h3';
+};
+
+const { link, class: className, headingLevel = 'h3' } = Astro.props;
+const { title, url, description, savedToWayback, effect } = link;
+const TitleTag = headingLevel;
+---
+
+<a class:list={['flex justify-between items-start gap-8 group', className]} href={url} target="_blank" rel="noopener noreferrer">
+    <div class="grow">
+        <TitleTag
+            class:list={[
+                'text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-dashed group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl',
+                effect
+            ]}
+        >
+            {title}
+        </TitleTag>
+        <p class="mt-1 text-sm leading-normal text-text-secondary">{description}</p>
+        {savedToWayback && <span class="mt-2 inline-block text-xs bg-accent/20 text-accent rounded-full px-2 py-1">Archived</span>}
+    </div>
+    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
+        Visit Link <ArrowRight class="fill-current w-4 h-4" />
+    </div>
+</a>

@@ -1,0 +1,193 @@
+/* Your Personal Text Effects Library */
+
+/* --- Flame Text --- */
+.flame-text {
+    font-weight: bold;
+    color: #ffc800; /* A fiery yellow */
+    text-shadow: 
+        0 0 5px #ffc800,
+        0 0 10px #ff8c00,
+        0 0 15px #ff4500,
+        0 0 20px #dc143c;
+}
+
+/* --- Old-School Marquee --- */
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* --- Neon Glow --- */
+.neon-glow {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+
+
+/* --- Expanding Text --- */
+.expanding-text {
+    transition: letter-spacing 0.5s ease;
+}
+.expanding-text:hover {
+    letter-spacing: 4px;
+}
+
+/* --- Mirror Text --- */
+.mirror-text {
+    display: inline-block;
+    transform: scaleY(-1);
+}
+
+/* --- 3D Text --- */
+.threedee-text {
+    color: #fff;
+    text-shadow: 
+        1px 1px 0 #999, 
+        2px 2px 0 #999, 
+        3px 3px 0 #999, 
+        4px 4px 0 #999, 
+        5px 5px 0 #999;
+}
+
+/* --- Blinking Text --- */
+.blinking-text {
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Retro Wave --- */
+.retro-wave-text {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+  transform: skewY(-5deg);
+}
+
+/* --- Rainbow Text --- */
+.rainbow-text {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-cycle 5s linear infinite;
+}
+@keyframes rainbow-cycle {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+/* --- Embossed Text --- */
+.embossed-text {
+    color: #444;
+    text-shadow: 1px 1px 0px #fff, -1px -1px 0px #888;
+}
+
+/* --- Outlined Text --- */
+.outlined-text {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    color: transparent;
+}
+
+/* --- Inset/Engraved Text --- */
+.inset-text {
+    background-color: #666;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* --- Anaglyph (3D Glasses) Text --- */
+.anaglyph-text {
+    color: #fff;
+    text-shadow: -2px -2px 0px #ff0000, 2px 2px 0px #00ffff;
+}
+
+/* --- Wavy Text --- */
+/* NOTE: Requires JavaScript to wrap each letter in a <span> */
+/* with a style property of --i set to the letter's index. */
+/* I've updated the script in LinkArchive.astro to do this automatically! */
+.wavy-text span {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-10px);
+    }
+}
+
+/* --- Shiny/Glossy Text --- */
+.shiny-text {
+    background: linear-gradient(to right, #ccc, #fff, #ccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- Matrix Code Text --- */
+.matrix-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    animation: flicker 1.5s infinite;
+}
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* --- Cutout Text --- */
+/* NOTE: Uses an external animated GIF for the background. */
+/* This may not be reliable. Consider hosting the image yourself. */
+.cutout-text {
+    background: url('https://i.imgur.com/sT8z9dC.gif') center; /* Example animated GIF background */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+/* --- Drop Shadow Text --- */
+.drop-shadow-text {
+    color: #fff;
+    text-shadow: 3px 3px 5px #000;
+}
+
+/* --- Comic Book Text --- */
+.comic-text {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    color: yellow;
+    text-shadow: 3px 3px 0 #f00;
+}

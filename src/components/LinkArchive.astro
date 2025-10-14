@@ -1,0 +1,242 @@
+---
+import { linkArchive } from '@data/linkArchive';
+import LinkPreview from './LinkPreview.astro';
+
+type Props = {
+    randomizeTabEffects?: boolean;
+    randomizeLinkEffects?: boolean;
+};
+
+const { randomizeTabEffects = false, randomizeLinkEffects = false } = Astro.props;
+
+// A complete list of all the cool retro effects from your library
+const allEffects = [
+    'flame-text',
+    'marquee-text',
+    'neon-glow',
+    'expanding-text',
+    'mirror-text',
+    'threedee-text',
+    'blinking-text',
+    'retro-wave-text',
+    'rainbow-text',
+    'embossed-text',
+    'outlined-text',
+    'inset-text',
+    'anaglyph-text',
+    'wavy-text',
+    'shiny-text',
+    'matrix-text',
+    'cutout-text',
+    'drop-shadow-text',
+    'comic-text'
+];
+
+// If randomization for links is on, create a new data object with random effects assigned
+const displayArchive = randomizeLinkEffects
+    ? linkArchive.map((category) => ({
+          ...category,
+          links: category.links.map((link) => ({
+              ...link,
+              effect: allEffects[Math.floor(Math.random() * allEffects.length)]
+          }))
+      }))
+    : linkArchive;
+---
+
+<div id="link-archive-container" data-randomize-effects={randomizeTabEffects.toString()}>
+    <div class="flex justify-center">
+        <div id="tabs" class="flex border-b border-base-300">
+            {
+                linkArchive.map((category, index) => (
+                    <button
+                        class="tab px-4 py-2 sm:px-6 font-mono focus:outline-none"
+                        data-tab-id={index}
+                        data-tab-color={category.color}
+                        data-tab-effect={category.effect}
+                        role="tab"
+                    >
+                        {category.name}
+                    </button>
+                ))
+            }
+        </div>
+    </div>
+    <div id="content-area" class="pt-8 sm:pt-12">
+        {
+            displayArchive.map((category, index) => (
+                <div class="tab-content" data-content-id={index} role="tabpanel">
+                    <div class="space-y-8">
+                        {category.links.map((link) => (
+                            <LinkPreview link={link} />
+                        ))}
+                        {category.links.length === 0 && <p class="text-text-secondary">No links in this category yet.</p>}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<script>
+    function initTabs() {
+        // All of our logic will be wrapped in a try...catch block for robust error handling.
+        try {
+            const container = document.getElementById('link-archive-container');
+            if (!container) {
+                console.error('LinkArchive container not found. Effects will not be initialized.');
+                return;
+            }
+
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            const randomize = container.dataset.randomizeEffects === 'true';
+
+            console.log('Initializing Link Archive effects. Randomization:', randomize);
+
+            // A complete list of all the cool retro effects from your library
+            const allEffects = [
+                'flame-text',
+                'marquee-text',
+                'neon-glow',
+                'expanding-text',
+                'mirror-text',
+                'threedee-text',
+                'blinking-text',
+                'retro-wave-text',
+                'rainbow-text',
+                'embossed-text',
+                'outlined-text',
+                'inset-text',
+                'anaglyph-text',
+                'wavy-text',
+                'shiny-text',
+                'matrix-text',
+                'cutout-text',
+                'drop-shadow-text',
+                'comic-text'
+            ];
+
+            // Store original text and assign random effects if enabled
+            tabs.forEach((tab, index) => {
+                tab.dataset.originalText = tab.textContent;
+                if (randomize) {
+                    const randomEffect = allEffects[Math.floor(Math.random() * allEffects.length)];
+                    tab.setAttribute('data-tab-effect', randomEffect);
+                    console.log(`Tab ${index} ('${tab.textContent.trim()}'): assigned effect -> ${randomEffect}`);
+                }
+            });
+
+            if (tabs.length === 0) return;
+
+            function showTab(tabId, color) {
+                if (!tabId) return;
+                document.documentElement.style.setProperty('--active-tab-color', color || 'var(--border-main)');
+
+                contents.forEach((content) => {
+                    const contentId = content.getAttribute('data-content-id');
+                    content.style.display = contentId === tabId ? 'block' : 'none';
+                });
+
+                tabs.forEach((t) => {
+                    const button = t;
+                    const effect = button.getAttribute('data-tab-effect');
+                    const originalText = button.dataset.originalText;
+
+                    // Always reset the button's content and classes first
+                    button.innerHTML = originalText;
+                    // Clear any lingering effect classes
+                    if (button.dataset.lastEffect) {
+                        button.classList.remove(button.dataset.lastEffect);
+                    }
+
+                    if (button.getAttribute('data-tab-id') === tabId) {
+                        button.classList.add('active-tab');
+                        if (effect) {
+                            button.classList.add(effect);
+                            button.dataset.lastEffect = effect; // Remember the last effect applied
+
+                            // Special handling for the wavy-text effect
+                            if (effect === 'wavy-text') {
+                                button.innerHTML = ''; // Clear existing text
+                                for (let i = 0; i < originalText.length; i++) {
+                                    const span = document.createElement('span');
+                                    span.style.setProperty('--i', i);
+                                    // Use a non-breaking space for spaces to maintain layout
+                                    span.textContent = originalText[i] === ' ' ? '\u00A0' : originalText[i];
+                                    button.appendChild(span);
+                                }
+                            }
+                        }
+                    } else {
+                        button.classList.remove('active-tab');
+                    }
+                });
+            }
+
+            const firstTab = tabs[0];
+            showTab(firstTab.getAttribute('data-tab-id'), firstTab.getAttribute('data-tab-color'));
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('mouseover', () => {
+                    showTab(tab.getAttribute('data-tab-id'), tab.getAttribute('data-tab-color'));
+                });
+            });
+        } catch (error) {
+            console.error('An error occurred in the LinkArchive script:', error);
+        }
+    }
+
+    initTabs();
+    document.addEventListener('astro:after-swap', initTabs);
+</script>
+
+<style is:global>
+    @import '../styles/text-effects.css';
+
+    .candy {
+        --color1: #1fd537;
+        --color2: #e40010;
+
+        -webkit-text-stroke: 1px black;
+        background: repeating-linear-gradient(45deg, var(--color1), var(--color1) 30px, var(--color2) 30px, var(--color2) 60px);
+
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+        animation: 40s linear 0s infinite move;
+    }
+
+    @keyframes move {
+        from {
+            background-position: 0px;
+        }
+        to {
+            background-position: 1000px;
+        }
+    }
+</style>
+
+<style>
+    .tab {
+        border: 1px solid transparent;
+        border-bottom: none;
+        margin-bottom: -1px;
+        position: relative;
+        cursor: pointer;
+        color: var(--text-main);
+        opacity: 0.6;
+        transition: all 0.2s ease-in-out;
+        border-radius: 6px 6px 0 0;
+    }
+    .tab:hover {
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    .active-tab {
+        opacity: 1;
+        border-color: var(--border-main);
+        background-color: var(--bg-main);
+        border-top: 3px solid var(--active-tab-color, var(--border-main));
+    }
+</style>
