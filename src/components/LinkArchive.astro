@@ -44,7 +44,7 @@ const displayArchive = randomizeLinkEffects
     : linkArchive;
 ---
 
-<div id="link-archive-container" data-randomize-effects={randomizeTabEffects.toString()}>
+<div id="link-archive-container" data-randomize-effects={randomizeTabEffects.toString()} data-effects-list={JSON.stringify(allEffects)}>
     <div class="flex justify-center">
         <div id="tabs" class="flex border-b border-base-300">
             {
@@ -82,40 +82,20 @@ const displayArchive = randomizeLinkEffects
     function initTabs() {
         // All of our logic will be wrapped in a try...catch block for robust error handling.
         try {
-            const container = document.getElementById('link-archive-container');
+            const container = document.getElementById('link-archive-container') as HTMLElement;
             if (!container) {
                 console.error('LinkArchive container not found. Effects will not be initialized.');
                 return;
             }
 
-            const tabs = document.querySelectorAll('.tab');
-            const contents = document.querySelectorAll('.tab-content');
+            const tabs = document.querySelectorAll('.tab') as NodeListOf<HTMLElement>;
+            const contents = document.querySelectorAll('.tab-content') as NodeListOf<HTMLElement>;
             const randomize = container.dataset.randomizeEffects === 'true';
 
             console.log('Initializing Link Archive effects. Randomization:', randomize);
 
-            // A complete list of all the cool retro effects from your library
-            const allEffects = [
-                'flame-text',
-                'marquee-text',
-                'neon-glow',
-                'expanding-text',
-                'mirror-text',
-                'threedee-text',
-                'blinking-text',
-                'retro-wave-text',
-                'rainbow-text',
-                'embossed-text',
-                'outlined-text',
-                'inset-text',
-                'anaglyph-text',
-                'wavy-text',
-                'shiny-text',
-                'matrix-text',
-                'cutout-text',
-                'drop-shadow-text',
-                'comic-text'
-            ];
+            // The effects list is now passed directly from the server-side code.
+            const allEffects = JSON.parse(container.dataset.effectsList || '[]');
 
             // Store original text and assign random effects if enabled
             tabs.forEach((tab, index) => {

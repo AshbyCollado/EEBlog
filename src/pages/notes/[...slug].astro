@@ -1,6 +1,9 @@
 ---
 import { marked } from 'marked';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import markedKatex from 'marked-katex-extension';
+import NoteLayout from '../../layouts/NoteLayout.astro';
+
+marked.use(markedKatex({ throwOnError: false }));
 
 // This is our simple, manual replacement function.
 function convertObsidianImages(content: string) {
@@ -35,7 +38,7 @@ const title = frontmatter.title || decodeURIComponent(Astro.params.slug.split('/
 const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
 ---
 
-<BaseLayout title={displayTitle}>
+<NoteLayout title={displayTitle}>
     <main class="prose prose-lg">
         <h1>{displayTitle}</h1>
         {
@@ -48,4 +51,4 @@ const displayTitle = title.charAt(0).toUpperCase() + title.slice(1);
         <hr />
         <div set:html={htmlContent} />
     </main>
-</BaseLayout>
+</NoteLayout>

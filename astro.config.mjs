@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import siteConfig from './src/data/site-config';
 
 // https://astro.build/config
@@ -13,7 +15,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
     sitemap(),
     svelte({
       experimental: {
