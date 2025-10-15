@@ -9,7 +9,8 @@ type Props = {
 
 const { randomizeTabEffects = false, randomizeLinkEffects = false } = Astro.props;
 
-// A complete list of all the cool retro effects from your library
+// This list is now ONLY used to pass to the client-side script.
+// All randomization happens in the browser.
 const allEffects = [
     'flame-text',
     'marquee-text',
@@ -31,20 +32,14 @@ const allEffects = [
     'drop-shadow-text',
     'comic-text'
 ];
-
-// If randomization for links is on, create a new data object with random effects assigned
-const displayArchive = randomizeLinkEffects
-    ? linkArchive.map((category) => ({
-          ...category,
-          links: category.links.map((link) => ({
-              ...link,
-              effect: allEffects[Math.floor(Math.random() * allEffects.length)]
-          }))
-      }))
-    : linkArchive;
 ---
 
-<div id="link-archive-container" data-randomize-effects={randomizeTabEffects.toString()} data-effects-list={JSON.stringify(allEffects)}>
+<div
+    id="link-archive-container"
+    data-randomize-effects={randomizeTabEffects.toString()}
+    data-randomize-link-effects={randomizeLinkEffects.toString()}
+    data-effects-list={JSON.stringify(allEffects)}
+>
     <div class="flex justify-center">
         <div id="tabs" class="flex border-b border-base-300">
             {
@@ -64,7 +59,7 @@ const displayArchive = randomizeLinkEffects
     </div>
     <div id="content-area" class="pt-8 sm:pt-12">
         {
-            displayArchive.map((category, index) => (
+            linkArchive.map((category, index) => (
                 <div class="tab-content" data-content-id={index} role="tabpanel">
                     <div class="space-y-8">
                         {category.links.map((link) => (
@@ -90,22 +85,39 @@ const displayArchive = randomizeLinkEffects
 
             const tabs = document.querySelectorAll('.tab') as NodeListOf<HTMLElement>;
             const contents = document.querySelectorAll('.tab-content') as NodeListOf<HTMLElement>;
-            const randomize = container.dataset.randomizeEffects === 'true';
+            const randomizeTabs = container.dataset.randomizeEffects === 'true';
+            const randomizeLinks = container.dataset.randomizeLinkEffects === 'true';
 
-            console.log('Initializing Link Archive effects. Randomization:', randomize);
+            console.log('Initializing Link Archive effects. Randomize Tabs:', randomizeTabs, 'Randomize Links:', randomizeLinks);
 
             // The effects list is now passed directly from the server-side code.
             const allEffects = JSON.parse(container.dataset.effectsList || '[]');
 
             // Store original text and assign random effects if enabled
-            tabs.forEach((tab, index) => {
-                tab.dataset.originalText = tab.textContent;
-                if (randomize) {
+            if (randomizeTabs) {
+                tabs.forEach((tab, index) => {
+                    tab.dataset.originalText = tab.dataset.originalText || tab.textContent;
                     const randomEffect = allEffects[Math.floor(Math.random() * allEffects.length)];
                     tab.setAttribute('data-tab-effect', randomEffect);
                     console.log(`Tab ${index} ('${tab.textContent.trim()}'): assigned effect -> ${randomEffect}`);
-                }
-            });
+                });
+            }
+
+            // --- NEW: Randomize Link Effects Client-Side ---
+            if (randomizeLinks) {
+                const linkTitles = document.querySelectorAll('[data-link-title]') as NodeListOf<HTMLElement>;
+                linkTitles.forEach((title, index) => {
+                    // Find and remove any existing effect class that might have been rendered by the server.
+                    const currentEffect = Array.from(title.classList).find((cls) => allEffects.includes(cls));
+                    if (currentEffect) {
+                        title.classList.remove(currentEffect);
+                    }
+                    // Add a new random one.
+                    const randomEffect = allEffects[Math.floor(Math.random() * allEffects.length)];
+                    title.classList.add(randomEffect);
+                });
+            }
+            // --- End of New Logic ---
 
             if (tabs.length === 0) return;
 
@@ -124,7 +136,11 @@ const displayArchive = randomizeLinkEffects
                     const originalText = button.dataset.originalText;
 
                     // Always reset the button's content and classes first
-                    button.innerHTML = originalText;
+                    if (!button.dataset.originalText) {
+                        button.dataset.originalText = button.textContent;
+                    }
+                    button.innerHTML = button.dataset.originalText;
+
                     // Clear any lingering effect classes
                     if (button.dataset.lastEffect) {
                         button.classList.remove(button.dataset.lastEffect);
